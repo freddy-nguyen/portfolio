@@ -5,6 +5,22 @@ interface IProps {
     setShowLeft: (value: boolean) => void;
 }
 
+const handleScroll = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>, str: string) => {
+    const section = document.querySelector(str);
+    if (section) {
+        event.preventDefault()
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+};
+
+const mainPages = [
+    { link: '#home', html: 'Home' },
+    { link: '#about', html: 'About' },
+    { link: '#skills', html: 'Skills' },
+    { link: '#projects', html: 'Projects' },
+    { link: '#contact', html: 'Contact' }
+]
+
 const LeftPart = (props: IProps) => {
     return (<>
         <div className={props.showLeft === true ? "arlo_tm_leftpart_wrap opened" : "arlo_tm_leftpart_wrap"}>
@@ -14,12 +30,10 @@ const LeftPart = (props: IProps) => {
                 </div>
                 <div className="menu_list_wrap">
                     <ul className="anchor_nav">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#skills">Skills</a></li>
-                        <li><a href="#projects">Projects</a></li>
-                        <li><a href="#news">News</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        {mainPages.map((item, index) => {
+                            return (<li><a href={item.link} onClick={(e) => handleScroll(e, item.link)}>{item.html}</a></li>
+                            )
+                        })}
                     </ul>
                 </div>
                 <div className="leftpart_bottom">
@@ -33,8 +47,7 @@ const LeftPart = (props: IProps) => {
                         </ul>
                     </div>
                 </div>
-                <a className={props.showLeft ? "arlo_tm_resize opened" : "arlo_tm_resize"}
-                    href="#"
+                <a style={{ cursor: 'pointer' }} className={props.showLeft ? "arlo_tm_resize opened" : "arlo_tm_resize"}
                     onClick={() => props.setShowLeft(!props.showLeft)
                     } //toggle
                 ><i className={props.showLeft ? "xcon-angle-left opened" : "xcon-angle-left"}></i></a>

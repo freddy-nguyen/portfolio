@@ -2,6 +2,8 @@ import image500 from "@/assets/img/about/550x640.jpg"
 import blue1 from "@/assets/img/about/blue.png"
 import myCV from "@/assets/Resume.pdf"
 import { TypeAnimation } from 'react-type-animation';
+import { useRef, useEffect } from 'react'
+import Parallax from 'parallax-js'
 
 const About = () => {
     return (<>
