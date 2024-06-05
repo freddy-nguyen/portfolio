@@ -22,6 +22,7 @@ const Skill = () => {
                                             bgColor='#333'
                                             height='8px'
                                             isLabelVisible={false}
+                                            animateOnRender={true}
                                         />
                                         {/*  - <span className="experience">5 years of experience</span> */}
                                     </div>
@@ -32,6 +33,7 @@ const Skill = () => {
                                             bgColor='#333'
                                             height='8px'
                                             isLabelVisible={false}
+                                            animateOnRender={true}
                                         />
                                     </div>
 
@@ -41,6 +43,7 @@ const Skill = () => {
                                             bgColor='#333'
                                             height='8px'
                                             isLabelVisible={false}
+                                            animateOnRender={true}
                                         />
                                         {/*  - <span className="experience">5 years of experience</span> */}
                                     </div>
@@ -74,6 +77,7 @@ const Skill = () => {
                                             bgColor='#333'
                                             height='8px'
                                             isLabelVisible={false}
+                                            animateOnRender={true}
                                         />
                                     </div>
 
@@ -83,6 +87,7 @@ const Skill = () => {
                                             bgColor='#333'
                                             height='8px'
                                             isLabelVisible={false}
+                                            animateOnRender={true}
                                         />
                                     </div>
 
@@ -92,6 +97,7 @@ const Skill = () => {
                                             bgColor='#333'
                                             height='8px'
                                             isLabelVisible={false}
+                                            animateOnRender={true}
                                         />
                                     </div>
 
@@ -126,6 +132,7 @@ const Skill = () => {
                                             bgColor='#333'
                                             height='8px'
                                             isLabelVisible={false}
+                                            animateOnRender={true}
                                         />
                                     </div>
 
@@ -135,6 +142,7 @@ const Skill = () => {
                                             bgColor='#333'
                                             height='8px'
                                             isLabelVisible={false}
+                                            animateOnRender={true}
                                         />
                                     </div>
 
@@ -144,6 +152,7 @@ const Skill = () => {
                                             bgColor='#333'
                                             height='8px'
                                             isLabelVisible={false}
+                                            animateOnRender={true}
                                         />
                                     </div>
                                 </div>

@@ -93,7 +93,7 @@ const About = () => {
                                             <a href={myCV} download><span>Download CV</span></a>
                                         </li>
                                         <li className="anchor">
-                                            <a href="#contact"><span>Let's Talk</span></a>
+                                            <a href="#contact"><span>Let's Connect!</span></a>
                                         </li>
                                     </ul>
                                 </div>
