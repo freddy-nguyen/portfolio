@@ -1,8 +1,13 @@
 import reactLogo from '@/assets/img/logo/reactlogo.png'
 
-const LeftPart = () => {
+interface IProps {
+    showLeft: boolean;
+    setShowLeft: (value: boolean) => void;
+}
+
+const LeftPart = (props: IProps) => {
     return (<>
-        <div className="arlo_tm_leftpart_wrap">
+        <div className={props.showLeft === true ? "arlo_tm_leftpart_wrap opened" : "arlo_tm_leftpart_wrap"}>
             <div className="leftpart_inner">
                 <div className="logo_wrap">
                     <a href="#"><img src={reactLogo} alt="desktop-logo" style={{ width: '100px', height: 'auto' }} /></a>
@@ -28,7 +33,11 @@ const LeftPart = () => {
                         </ul>
                     </div>
                 </div>
-                <a className="arlo_tm_resize" href="#"><i className="xcon-angle-left"></i></a>
+                <a className={props.showLeft ? "arlo_tm_resize opened" : "arlo_tm_resize"}
+                    href="#"
+                    onClick={() => props.setShowLeft(!props.showLeft)
+                    } //toggle
+                ><i className={props.showLeft ? "xcon-angle-left opened" : "xcon-angle-left"}></i></a>
             </div>
         </div>
     </>)
