@@ -1,12 +1,18 @@
 import LeftPart from "components/leftPart"
 import MobileMenu from "components/mobile/menu"
-import Preloader from "components/preloader"
+// import Preloader from "components/preloader"
 import RightPart from "components/rightPart"
-import { FloatButton } from "antd";
-import { useState } from 'react'
+import { FloatButton } from "antd"
+import { useState, useEffect } from 'react'
+import { isMobile } from 'react-device-detect'
 
 const Portfolio = () => {
     const [showLeft, setShowLeft] = useState<boolean>(false)
+    useEffect(() => {
+        if (isMobile) {
+            setShowLeft(true)
+        }
+    }, [])
     return (
         <>
             {/* <!-- WRAPPER ALL --> */}
@@ -19,39 +25,50 @@ const Portfolio = () => {
                     <span className="close"><a href="#"></a></span>
                 </div>
 
-                {/* <!-- PRELOADER --> */}
-                <Preloader />
-                {/* <!-- /PRELOADER --> */}
+                {/* <Preloader /> */}
 
-                {/* <!-- MOBILE MENU --> */}
-                <MobileMenu />
-                {/* <!-- /MOBILE MENU --> */}
 
-                {/* <!-- CONTENT --> */}
+
                 <div className="arlo_tm_content">
-
-                    {/* <!-- LEFTPART --> */}
+                    {/* {isMobile && <>
+                        <MobileMenu />
+                        <LeftPart
+                            showLeft={showLeft}
+                            setShowLeft={setShowLeft}
+                        />
+                        <RightPart
+                            showLeft={showLeft}
+                            setShowLeft={setShowLeft}
+                        /> </>
+                    }
+                    {!isMobile && <>
+                        <LeftPart
+                            showLeft={showLeft}
+                            setShowLeft={setShowLeft}
+                        />
+                        <RightPart
+                            showLeft={showLeft}
+                            setShowLeft={setShowLeft}
+                        />
+                    </>} */}
+                    <MobileMenu
+                    />
                     <LeftPart
                         showLeft={showLeft}
                         setShowLeft={setShowLeft}
                     />
-                    {/* <!-- /LEFTPART --> */}
-
-                    {/* <!-- RIGHTPART --> */}
                     <RightPart
                         showLeft={showLeft}
                         setShowLeft={setShowLeft}
                     />
-                    {/* <!-- /RIGHTPART --> */}
-
-                    {/* <a className="arlo_tm_totop" href="#"></a> */}
                     <FloatButton.BackTop
                         tooltip={<div>Back to Top</div>}
                     />
 
                 </div>
             </div>
-            {/* <!-- / WRAPPER ALL --> */}    </>)
+            {/* <!-- / WRAPPER ALL --> */}
+        </>)
 }
 
 export default Portfolio

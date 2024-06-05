@@ -1,5 +1,6 @@
 import reactLogo from '@/assets/img/logo/reactlogo.png'
 import { useState, useEffect } from 'react'
+import { isMobile } from 'react-device-detect'
 
 interface IProps {
     showLeft: boolean;
@@ -69,10 +70,13 @@ const LeftPart = (props: IProps) => {
                         </ul>
                     </div>
                 </div>
-                <a style={{ cursor: 'pointer' }} className={props.showLeft ? "arlo_tm_resize opened" : "arlo_tm_resize"}
-                    onClick={() => props.setShowLeft(!props.showLeft)
-                    } //toggle
-                ><i className={props.showLeft ? "xcon-angle-left opened" : "xcon-angle-left"}></i></a>
+                {!isMobile && <>
+                    <a style={{ cursor: 'pointer' }} className={props.showLeft ? "arlo_tm_resize opened" : "arlo_tm_resize"}
+                        onClick={() => props.setShowLeft(!props.showLeft)
+                        } //toggle
+                    ><i className={props.showLeft ? "xcon-angle-left opened" : "xcon-angle-left"}></i></a>
+                </>}
+
             </div>
         </div >
     </>)

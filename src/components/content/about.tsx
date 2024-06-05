@@ -89,7 +89,7 @@ const About = () => {
 
                                 </div>
                                 <div className="definition">
-                                    <p>Hi, my name is&nbsp;<strong>Freddy Nguyen</strong>. I am a Computer Science junior working diligently towards becoming a full-stack software developer.</p><br></br>
+                                    <p>Hi, my name is&nbsp;<strong>Quan/Freddy Nguyen</strong>. I am a Computer Science junior working diligently towards becoming a full-stack software developer.</p><br></br>
                                     <p>With my knowledge of UI/UX design, I enjoy solving front-end Web Development problems and creating the best
                                         user experiences for users.</p><br></br>
                                     <p>I also spend time learning new technologies and best practices to become a better engineer.</p>

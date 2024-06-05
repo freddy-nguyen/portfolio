@@ -3161,6 +3161,10 @@ img.svg {
                     font-family: $font-family_2;
                     font-weight: 600;
                     font-size: 19px;
+
+                    &.active {
+                        color: $color_3;
+                    }
                 }
             }
         }
@@ -3225,7 +3229,9 @@ img.svg {
     }
 }
 
-@media (max-width: 1040px) {
+@media (max-width: 600px) {
+
+    //FIX ME to 600?
     .arlo_tm_about_wrap {
         flex-direction: column;
 
