@@ -1,17 +1,11 @@
 import reactLogo from '@/assets/img/logo/reactlogo.png'
+import { useState } from 'react'
 
 interface IProps {
     showLeft: boolean;
     setShowLeft: (value: boolean) => void;
 }
 
-const handleScroll = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>, str: string) => {
-    const section = document.querySelector(str);
-    if (section) {
-        event.preventDefault()
-        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-};
 
 const mainPages = [
     { link: '#home', html: 'Home' },
@@ -22,16 +16,31 @@ const mainPages = [
 ]
 
 const LeftPart = (props: IProps) => {
+    const [activeTab, setActiveTab] = useState<string>('')
+    const handleScroll = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>, str: string) => {
+        setActiveTab(str)
+        const section = document.querySelector(str);
+        if (section) {
+            event.preventDefault()
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    };
     return (<>
-        <div className={props.showLeft === true ? "arlo_tm_leftpart_wrap opened" : "arlo_tm_leftpart_wrap"}>
-            <div className="leftpart_inner">
-                <div className="logo_wrap">
+        <div className={props.showLeft === true ? "arlo_tm_leftpart_wrap opened " : "arlo_tm_leftpart_wrap "}>
+            <div className="leftpart_inner ">
+                <div className="logo_wrap ">
                     <a href="#"><img src={reactLogo} alt="desktop-logo" style={{ width: '100px', height: 'auto' }} /></a>
                 </div>
-                <div className="menu_list_wrap">
-                    <ul className="anchor_nav">
+                <div className="menu_list_wrap ">
+                    <ul className="anchor_nav ">
                         {mainPages.map((item, index) => {
-                            return (<li><a href={item.link} onClick={(e) => handleScroll(e, item.link)}>{item.html}</a></li>
+                            return (<li>
+                                <a className={activeTab === item.link ? 'active' : ''}
+                                    href={item.link}
+                                    onClick={(e) => handleScroll(e, item.link)}>
+                                    {item.html}
+                                </a>
+                            </li>
                             )
                         })}
                     </ul>
@@ -52,7 +61,7 @@ const LeftPart = (props: IProps) => {
                     } //toggle
                 ><i className={props.showLeft ? "xcon-angle-left opened" : "xcon-angle-left"}></i></a>
             </div>
-        </div>
+        </div >
     </>)
 }
 export default LeftPart
