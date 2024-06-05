@@ -12,7 +12,10 @@ import { SiNestjs } from "react-icons/si"; // NestJS
 {/* <SiNestjs /> */ }
 import { IoInformationCircle } from "react-icons/io5";
 {/* <IoInformationCircle /> */ }
+import blueImg from '@/assets/img/about/blue.png';
+
 interface IProject {
+    background_image: string;
     image: JSX.Element,
     title: string,
     shortDescription: string,
@@ -46,6 +49,7 @@ const Project = () => {
     const dataProject = [
         {
             image: <GrTasks size='50' color='#006747' />,
+            background_image: blueImg,
             title: 'S.T.A.P.',
             shortDescription: 'Smart Task Automation App to visualize your task calendar and automatically suggest consistent tasks to free days.',
             detail: {
@@ -60,6 +64,7 @@ const Project = () => {
 
         {
             image: <SiReactivex size='50' color='#3b5998' />,
+            background_image: '',
             title: 'D.A.M.',
             shortDescription: 'Help project leaders Decentralize Access and Manage members, groups, member roles, group roles and customers',
             detail: {
@@ -74,6 +79,7 @@ const Project = () => {
 
         {
             image: <MdOutlineSecurity size='50' color='Ff6700' />,
+            background_image: '',
             title: 'Secure Coding',
             shortDescription: 'Different algorithm-based protocols that target multiple cryptographic methods for better secured online communication',
             detail: {
@@ -88,6 +94,7 @@ const Project = () => {
 
         {
             image: <BsRobot size='50' color='#C45508' />,
+            background_image: '',
             title: 'Smart Wall-E',
             shortDescription: 'A very sensitive colored-line-following robot that functions even in however rough terrain. Faint color is guaranteed.',
             detail: {
@@ -102,6 +109,7 @@ const Project = () => {
 
         {
             image: <SiNestjs size='50' color='#ea285b' />,
+            background_image: '',
             title: 'NestJS',
             shortDescription: 'NestJS',
             detail: {
@@ -118,7 +126,7 @@ const Project = () => {
     ]
 
     return (<>
-        <div className="arlo_tm_section" id="services">
+        <div className="arlo_tm_section" id="projects">
             <div className="arlo_tm_services_wrap">
                 <div className="container">
                     <div className="arlo_tm_title_holder">
@@ -129,11 +137,12 @@ const Project = () => {
                         <ul>
                             {dataProject.map((item, index) => {
                                 return (<>
-                                    <li>
+                                    <li style={{ backgroundImage: '{item.background_image}' }}>
                                         <div className="inner">
                                             <div className="icon">
                                                 {item.image}
                                             </div>
+                                            {/* <img className='project_bg' src={item.background_image} alt='bg' width='100' height='auto'></img> */}
                                             <div className="title_service">
                                                 <h3>{item.title}</h3>
                                             </div>
@@ -146,7 +155,7 @@ const Project = () => {
                                                 </span>
                                             </div>
                                         </div>
-                                    </li>
+                                    </li >
                                     {/* {isContent? }                                     */}
                                 </>)
                             })}
@@ -162,9 +171,6 @@ const Project = () => {
                                     <li>GitHub: {isContent.detail.github}</li>
                                 </Modal>
                             }
-
-
-
                         </ul>
                     </div>
                 </div>
