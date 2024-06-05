@@ -1173,7 +1173,7 @@ img.svg {
 
     &:last-child {
         padding-bottom: 90px;
-        margin-bottom: 100px;
+        // margin-bottom: 100px;
     }
 
     .inner_wrap {
@@ -1388,7 +1388,7 @@ img.svg {
     height: auto;
     clear: both;
     float: left;
-    // background-color: $background-color_1;
+    margin-top: 100px;
     margin-bottom: 70px;
     text-align: left;
     -webkit-box-sizing: border-box;

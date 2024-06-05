@@ -1,5 +1,5 @@
 import reactLogo from '@/assets/img/logo/reactlogo.png'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 interface IProps {
     showLeft: boolean;
@@ -16,13 +16,26 @@ const mainPages = [
 ]
 
 const LeftPart = (props: IProps) => {
-    const [activeTab, setActiveTab] = useState<string>('')
+    const [activeTab, setActiveTab] = useState<string>('#home')
+
+    useEffect(() => {
+        const { hash } = window.location
+        setActiveTab(hash);
+        if (hash) {
+            const section = document.querySelector(`${hash}`);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth', block: 'start' })
+            }
+        }
+    }, [])
+
     const handleScroll = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>, str: string) => {
         setActiveTab(str)
         const section = document.querySelector(str);
         if (section) {
             event.preventDefault()
             section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            setTimeout(() => { window.location.hash = str }, 1000)
         }
     };
     return (<>

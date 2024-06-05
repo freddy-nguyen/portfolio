@@ -30,6 +30,15 @@ const About = () => {
     //     </div>
     // )
 
+    const handleConnect = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+        const section = document.querySelector('#contact');
+        if (section) {
+            event.preventDefault()
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            setTimeout(() => { window.location.hash = '#contact' }, 1000)
+        }
+    };
+
 
     return (<>
         <div className="arlo_tm_section relative" id="about" style={{ paddingTop: 100 }} >
@@ -122,7 +131,7 @@ const About = () => {
                                             <a href={myCV} download><span>Download CV</span></a>
                                         </li>
                                         <li className="anchor">
-                                            <a href="#contact"><span>Let's Connect!</span></a>
+                                            <a href="#contact" onClick={(e) => handleConnect(e)}><span>Let's Connect!</span></a>
                                         </li>
                                     </ul>
                                 </div>
