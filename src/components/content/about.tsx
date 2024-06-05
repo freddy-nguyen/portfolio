@@ -30,6 +30,15 @@ const About = () => {
     //     </div>
     // )
 
+    const handleConnect = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+        const section = document.querySelector('#contact');
+        if (section) {
+            event.preventDefault()
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            setTimeout(() => { window.location.hash = '#contact' }, 1000)
+        }
+    };
+
 
     return (<>
         <div className="arlo_tm_section relative" id="about" style={{ paddingTop: 100 }} >
@@ -80,7 +89,7 @@ const About = () => {
 
                                 </div>
                                 <div className="definition">
-                                    <p>Hi, my name is&nbsp;<strong>Freddy Nguyen</strong>. I am a Computer Science junior working diligently towards becoming a full-stack software developer.</p><br></br>
+                                    <p>Hi, my name is&nbsp;<strong>Quan/Freddy Nguyen</strong>. I am a Computer Science junior working diligently towards becoming a full-stack software developer.</p><br></br>
                                     <p>With my knowledge of UI/UX design, I enjoy solving front-end Web Development problems and creating the best
                                         user experiences for users.</p><br></br>
                                     <p>I also spend time learning new technologies and best practices to become a better engineer.</p>
@@ -122,7 +131,7 @@ const About = () => {
                                             <a href={myCV} download><span>Download CV</span></a>
                                         </li>
                                         <li className="anchor">
-                                            <a href="#contact"><span>Let's Connect!</span></a>
+                                            <a href="#contact" onClick={(e) => handleConnect(e)}><span>Let's Connect!</span></a>
                                         </li>
                                     </ul>
                                 </div>

@@ -6,6 +6,7 @@ const HomeCV = () => {
         if (section) {
             event.preventDefault()
             section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            setTimeout(() => { window.location.hash = '#about' }, 1000);
         }
     };
 

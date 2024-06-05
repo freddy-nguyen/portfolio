@@ -1,5 +1,6 @@
 import reactLogo from '@/assets/img/logo/reactlogo.png'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { isMobile } from 'react-device-detect'
 
 interface IProps {
     showLeft: boolean;
@@ -16,13 +17,26 @@ const mainPages = [
 ]
 
 const LeftPart = (props: IProps) => {
-    const [activeTab, setActiveTab] = useState<string>('')
+    const [activeTab, setActiveTab] = useState<string>('#home')
+
+    useEffect(() => {
+        const { hash } = window.location
+        setActiveTab(hash);
+        if (hash) {
+            const section = document.querySelector(`${hash}`);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth', block: 'start' })
+            }
+        }
+    }, [])
+
     const handleScroll = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>, str: string) => {
         setActiveTab(str)
         const section = document.querySelector(str);
         if (section) {
             event.preventDefault()
             section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            setTimeout(() => { window.location.hash = str }, 1000)
         }
     };
     return (<>
@@ -56,10 +70,13 @@ const LeftPart = (props: IProps) => {
                         </ul>
                     </div>
                 </div>
-                <a style={{ cursor: 'pointer' }} className={props.showLeft ? "arlo_tm_resize opened" : "arlo_tm_resize"}
-                    onClick={() => props.setShowLeft(!props.showLeft)
-                    } //toggle
-                ><i className={props.showLeft ? "xcon-angle-left opened" : "xcon-angle-left"}></i></a>
+                {!isMobile && <>
+                    <a style={{ cursor: 'pointer' }} className={props.showLeft ? "arlo_tm_resize opened" : "arlo_tm_resize"}
+                        onClick={() => props.setShowLeft(!props.showLeft)
+                        } //toggle
+                    ><i className={props.showLeft ? "xcon-angle-left opened" : "xcon-angle-left"}></i></a>
+                </>}
+
             </div>
         </div >
     </>)
