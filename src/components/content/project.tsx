@@ -1,5 +1,5 @@
 import { Button, Modal } from 'antd';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const Project = () => {
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
