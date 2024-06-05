@@ -6,22 +6,19 @@ import Skill from '@/components/content/skill'
 // import CounterBox from "@/components/content/counterBox"
 // import News from "@components/content/news"
 import ContactMe from "@/components/content/contactMe"
-import { useInView } from "react-intersection-observer";
 
+interface IProps {
+    showLeft: boolean;
+    setShowLeft: (value: boolean) => void;
+}
 
-const RightPart = () => {
-    const { ref, inView, entry } = useInView({
-        triggerOnce: true,
-        // rootMargin: '-100px 0px',
-    });
+const RightPart = (props: IProps) => {
     return (<>
-        <div className="arlo_tm_rightpart">
+        <div className={props.showLeft === false ? "arlo_tm_rightpart" : "arlo_tm_rightpart opened"}>
             <div className="rightpart_inner">
                 <HomeCV />
                 <About />
-                <span ref={ref} className={`transition-opacity ${inView ? 'opacity-1' : 'opacity-0'}`}>
-                    <Skill />
-                </span>
+                <Skill />
                 <Project />
                 {/* <Testimonials /> */}
                 {/* <CounterBox /> */}

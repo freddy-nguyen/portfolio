@@ -592,7 +592,7 @@ img.svg {
     height: auto;
     clear: both;
     float: left;
-    margin-bottom: 100px;
+    // margin-bottom: 100px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -1085,6 +1085,7 @@ img.svg {
 }
 
 .arlo_tm_about_wrapper_all {
+    margin-top: 100;
     width: 100%;
     height: auto;
     clear: both;
@@ -2458,62 +2459,7 @@ img.svg {
     }
 }
 
-.arlo_tm_totop {
-    position: fixed;
-    bottom: 40px;
-    right: 55px;
-    z-index: 100;
-    overflow: hidden;
-    outline: 1px solid rgba(255, 255, 255, .2);
-    background-color: $background-color_3;
-    padding: 22px;
-    border-radius: 3px;
-    display: inline-block;
-    opacity: 0;
-    visibility: hidden;
-    -webkit-transition: all .5s ease;
-    -moz-transition: all .5s ease;
-    -ms-transition: all .5s ease;
-    -o-transition: all .5s ease;
-    transition: all .5s ease;
 
-    &:before {
-        position: absolute;
-        content: "";
-        top: 0px;
-        height: 100%;
-        left: -75%;
-        width: 0%;
-        background-color: $background-color_2;
-        transform: skew(50deg);
-        transition-duration: .6s;
-        z-index: 1;
-    }
-
-    &:after {
-        width: 0px;
-        height: 0px;
-        position: absolute;
-        content: '';
-        border: 5px solid transparent;
-        border-bottom-color: $border-bottom-color_1;
-        top: 14px;
-        left: 17px;
-        z-index: 2;
-    }
-
-    &:hover {
-        &:before {
-            width: 290%;
-        }
-    }
-}
-
-.arlo_tm_totop.opened {
-    opacity: 1;
-    visibility: visible;
-    bottom: 55px;
-}
 
 #particles-js {
     width: 100%;

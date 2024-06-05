@@ -137,8 +137,8 @@ const Project = () => {
                         <ul>
                             {dataProject.map((item, index) => {
                                 return (<>
-                                    <li style={{ backgroundImage: '{item.background_image}' }}>
-                                        <div className="inner">
+                                    <li>
+                                        <div className="inner" style={{ backgroundColor: '#f0f2f5' }}>
                                             <div className="icon">
                                                 {item.image}
                                             </div>
