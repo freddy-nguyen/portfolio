@@ -2,8 +2,35 @@ import image500 from "@/assets/img/about/550x640.jpg"
 import blue1 from "@/assets/img/about/blue.png"
 import myCV from "@/assets/Resume.pdf"
 import { TypeAnimation } from 'react-type-animation';
+import { useRef, useEffect } from 'react'
+import Parallax from 'parallax-js'
+
+// var scene = document.getElementById('scene');
+// if (scene)
+//     var parallaxInstance = new Parallax(scene, { relativeInput: true });
 
 const About = () => {
+
+    const sceneEl = useRef(null);
+
+    useEffect(() => {
+        if (sceneEl && sceneEl.current) {
+            const parallaxInstance = new Parallax(sceneEl.current, {
+                relativeInput: true,
+                hoverOnly: true
+            })
+            parallaxInstance.enable();
+            return () => parallaxInstance.disable();
+        }
+    }, [])
+
+    // return (
+    //     <div ref={sceneEl}>
+    //         {/* html */}
+    //     </div>
+    // )
+
+
     return (<>
         <div className="arlo_tm_section relative" id="about" style={{ paddingTop: 100 }} >
             <div className="arlo_tm_about_wrapper_all">
@@ -15,14 +42,14 @@ const About = () => {
                     <div className="arlo_tm_about_wrap">
                         <div className="author_wrap">
                             <div className="leftbox">
-                                <div className="about_image_wrap parallax" data-relative-input="true">
+                                <div className="about_image_wrap parallax" data-relative-input="true" ref={sceneEl}>
                                     <div className="image layer" data-depth="0.1">
                                         <img src={image500} alt="550x640" />
                                         <div className="inner"
                                             style={{ backgroundImage: `url(${blue1})` }}
                                         ></div>
                                     </div>
-                                    <div className="border layer" data-depth="0.2">
+                                    <div className="border layer" data-depth="0.4">
                                         <img src={image500} alt="550x640" />
                                         <div className="inner"></div>
                                     </div>

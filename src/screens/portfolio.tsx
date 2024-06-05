@@ -1,7 +1,7 @@
-import LeftPart from "../components/leftPart"
-import MobileMenu from "../components/mobile/menu"
-import Preloader from "../components/preloader"
-import RightPart from "../components/rightPart"
+import LeftPart from "components/leftPart"
+import MobileMenu from "components/mobile/menu"
+import Preloader from "components/preloader"
+import RightPart from "components/rightPart"
 import { FloatButton } from "antd";
 import { useState } from 'react'
 
